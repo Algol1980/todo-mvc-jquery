@@ -29,13 +29,13 @@ $(function() {
 
   $(".main").on("click", ".itemToDo", function() {
     if ($(this).is(":checked")) {
-      $(this).toggleClass('completed').toggleClass('uncomplete');
+      $(this).addClass('completed').removeClass('uncomplete');
       $(this).parent("label").css({
         "text-decoration": "line-through",
         color: "gray"
       });
     } else {
-      $(this).toggleClass('completed').toggleClass('uncomplete');
+      $(this).removeClass('completed').addClass('uncomplete');
       $(this).parent("label").css({
         "text-decoration": "",
         color: "#000"
@@ -46,12 +46,12 @@ $(function() {
 
   $('#allComplete').on('change', function() {
     if ($(this).is(':checked')) {
-      $('.itemToDo').prop('checked', $(this).is(':checked')).toggleClass('completed').parent("label").css({
+      $('.itemToDo').prop('checked', $(this).is(':checked')).addClass('completed').removeClass('uncomplete').parent().css({
         "text-decoration": "line-through",
         color: "gray"
       });
     } else {
-      $('.itemToDo').removeAttr('checked').toggleClass('completed').parent("label").css({
+      $('.itemToDo').removeAttr('checked').removeClass('completed').addClass('uncomplete').parent().css({
         "text-decoration": "",
         color: "#000"
       });
